@@ -6,17 +6,20 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>  
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 <body>
-    <div class="content">
-        <div id="app"> 
+    <div class="content" id="Tets">
+        <div id="app">
             <h1 v-once>{{ title }}</h1>
             <h1>{{title}}</h1>
             <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
             <hr>
             <p v-html="finishedLink"></p>
         </div>
+    </div>
+    <div class="calssAdded">
+        <h1>Class Added</h1>
     </div>
     <script>
         var app = new Vue({
@@ -30,9 +33,9 @@
                 sayHello: function() {
                     this.title = "Hello!";
                     return this.title;
-                } 
+                }
             }
         });
-    </script>        
+    </script>
 </body>
 </html>
