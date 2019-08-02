@@ -15,4 +15,6 @@ Short code
     v-on:click = @click 
     v-bind:href = :href
 
+    {{ message }} => string interpolation OR Property binding 
+
     

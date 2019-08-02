@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>  
+</head>
+<body>
+    <div class="content">
+        <div id="conditional-lists"> 
+            <p v-if="show">This is first Paragraph <span><b>This is inner element</b></span></p>
+            <p v-else>This is Second Paragraph</p>
+            <p v-show='show'>This is third Paragraph</p>
+            <template v-if='show'>
+                <p>Template is one of the element which you can attache inner elements but it is not showing as a dev</p>
+            </template>
+            <button @click="show = !show">Switch</button>
+
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#conditional-lists",
+            data: {
+                show: true
+            }
+        });
+    </script>        
+</body>
+</html>

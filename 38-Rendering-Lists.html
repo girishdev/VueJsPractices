@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <div id="conditional-lists">
+            <ul>
+                <li v-for="(ingredient, index) in ingredients" :key="ingredient">{{ ingredient }} ({{ index }})</li>
+            </ul>
+            <button @click="ingredients.push('spices')">Add New</button>
+            <hr>
+            <!-- looping through object -->
+            <ul>
+                <li v-for="person in persons">{{ person.name }}</li>  
+            </ul>
+            <ul>
+                <li v-for="person in persons">
+                    <div v-for="(value, key, index) in person">{{ key }}: {{ value }} ({{ index }})</div>
+                </li>
+            </ul>
+            <!-- looping 1 to 10 -->
+            <span v-for="n in 10">{{ n }}<br></span>
+            <hr>
+            <template v-for="(ingredient, index) in ingredients">
+                <h1>{{ ingredient }}</h1>
+                <p>{{ index }}</p>
+            </template>
+            <!-- Excise 43 -->
+            <ul>
+                <li v-for="value in testData">
+                    <template v-if="Array.isArray(value)">
+                        <div v-for="element in value">{{ element }}</div>
+                    </template>
+                    <template v-else>
+                        {{ value }}
+                    </template>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#conditional-lists",
+            data: {
+                ingredients: ['meat','fruit','cookies'],
+                persons: [
+                    {name: 'Max', age: 27, color: 'red'},
+                    {name: 'Anna', age: 25, color: 'blue'}
+                ],
+                testData: {
+                    name: 'Girish',
+                    age: 28,
+                    data: [10.02,23.3,56.02,85.36]
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
